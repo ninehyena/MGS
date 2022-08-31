@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTDMapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.mintGradeStore.mapper.NoticeMapper">
+
+	<select id="getListNotice" resultType="kr.mintGradeStore.domain.NoticeVO">
+		<![CDATA[SELECT * FROM tbl_notice WHERE bno > 0 ORDER BY bno DESC]]>
+	</select>
+
+	<select id="getListWithPagingNotice" resultType="kr.mintGradeStore.domain.NoticeVO">
+		<![CDATA[
+		SELECT bno, writer, category, title, content, regdate, updatedate
+		FROM
+		(SELECT /*+INDEX_DESC(tbl_notice pk_notice) */
+		ROWNUM rn, bno, writer, category, title, content, regdate, updatedate
+		FROM
+		tbl_notice
+		WHERE
+		]]>
+
+		<include refid="criteria" />
+		
+		<![CDATA[
+		ROWNUM <= #{pageNum} * #{amount})
+		WHERE
+		rn > (#{pageNum} - 1) * #{amount}
+		]]>
+	</select>
+
+	<!-- 게시물 총 개수 파악. -->
+	<select id="getTotalCountNotice" resultType="int">
+		<![CDATA[SELECT COUNT(bno) FROM tbl_notice WHERE]]>
+
+		<include refid="criteria" />
+		
+		<![CDATA[bno > 0]]>
+	</select>
+
+	<!-- 게시물 1개 쓰기. -->
+	<insert id="insertSelectKeyNotice">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
+			<!-- 레코드 추가 전에 selectKey 관련 작업 먼저 처리. -->
+			<!-- 추출되는 값은 bno이고 타입은 long. -->
+			SELECT seq_notice.NEXTVAL FROM dual
+		</selectKey>
+		INSERT INTO tbl_notice(bno, writer, category, title, content)
+		VALUES(#{bno}, #{writer}, #{category}, #{title}, #{content})
+	</insert>
+
+	<!-- 게시물 1개 읽기. -->
+	<select id="readNotice" resultType="kr.mintGradeStore.domain.NoticeVO">
+		SELECT * FROM tbl_notice WHERE bno = #{bno}
+	</select>
+
+	<!-- 게시물 1개 수정. -->
+	<update id="updateNotice">
+		UPDATE
+		tbl_notice
+		SET
+		writer = #{writer},
+		category = #{category},
+		title = #{title},
+		content = #{content},
+		updatedate = sysdate
+		WHERE
+		bno = #{bno}
+	</update>
+
+	<!-- 게시물 1개 삭제. -->
+	<delete id="deleteNotice">
+		DELETE tbl_notice WHERE bno = #{bno}
+	</delete>
+
+	<!-- 검색 쿼리문 모듈화. -->
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item="type" collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type=='C'.toString()">
+							category like '%' || #{keyword} || '%'
+						</when>
+						<when test="type=='T'.toString()">
+							title like '%' || #{keyword} || '%'
+						</when>
+						<when test="type=='N'.toString()">
+							content like '%' || #{keyword} || '%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+</mapper>

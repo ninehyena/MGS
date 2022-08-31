@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTDMapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 패키지명의 인터페이스와 매칭하기 위해 명시. -->
+<mapper namespace="kr.mintGradeStore.mapper.BoardAttachMapper">
+
+	<insert id="insert">
+		INSERT INTO tbl_attach(uuid, uploadpath, filename, filetype, bno)
+		VALUES(#{uuid}, #{uploadPath}, #{fileName}, #{fileType}, #{bno})
+	</insert>
+
+	<delete id="delete">
+		DELETE FROM tbl_attach WHERE uuid = #{uuid}
+	</delete>
+
+	<select id="findByBno" resultType="kr.mintGradeStore.domain.BoardAttachVO">
+		SELECT * FROM tbl_attach WHERE bno = #{bno}
+	</select>
+
+	<delete id="deleteAll">
+		DELETE tbl_attach WHERE bno = #{bno}
+	</delete>
+
+</mapper>

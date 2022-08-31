@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTDMapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.mintGradeStore.mapper.BoardMapper">
+
+	<!-- tbl_board에서 레코드 값 가져오기. -->
+	<!-- 쓰기, 읽기, 수정, 삭제: CRUD(Create, Read, Update, Delete) -->
+	<select id="getList" resultType="kr.mintGradeStore.domain.BoardVO">
+		<![CDATA[SELECT * FROM tbl_board WHERE bno > 0 ORDER BY bno DESC]]>
+	</select>
+	<!-- kr.mintGradeStore.mapper.BoardMapper: 생성될 인터페이스명. -->
+	<!-- kr.mintGradeStore.domain.BoardVO: 검색 결과를 담을 VO(Value Object). -->
+	<!-- BoardVO 객체 1개당 게시물 1개 저장. -->
+
+	<select id="getListWithPaging" resultType="kr.mintGradeStore.domain.BoardVO">
+		<![CDATA[
+		SELECT bno, consolename, gamename, gamenameoriginal, gamereleasedate, gamereleasedateymd, gamecondition, gameprice, gamegrade, gamequantity, replycnt
+		FROM
+		(SELECT /*+INDEX_DESC(tbl_board pk_board) */
+		ROWNUM rn, bno, consolename, gamename, gamenameoriginal, gamereleasedate, gamereleasedateymd, gamecondition, gameprice, gamegrade, gamequantity, replycnt
+		FROM
+		tbl_board
+		WHERE
+		]]>
+
+		<include refid="criteria" />
+		
+		<![CDATA[
+		ROWNUM <= #{pageNum} * #{amount})
+		WHERE
+		rn > (#{pageNum} - 1) * #{amount}
+		]]>
+	</select>
+	<!-- 처리 순서: foreach(when >>> 안쪽 trim >>> 바깥쪽 trim) -->
+
+	<update id="updateReplyCnt">
+		UPDATE tbl_board SET replycnt = replycnt + #{amount} WHERE bno = #{bno}
+	</update>
+
+	<!-- 게시물 총 개수 파악. -->
+	<select id="getTotalCount" resultType="int">
+		<![CDATA[SELECT COUNT(bno) FROM tbl_board WHERE]]>
+
+		<include refid="criteria" />
+		
+		<![CDATA[bno > 0]]>
+	</select>
+
+	<!-- 게시물 1개 쓰기. -->
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
+			<!-- 레코드 추가 전에 selectKey 관련 작업 먼저 처리. -->
+			<!-- 추출되는 값은 bno이고 타입은 long. -->
+			SELECT seq_board.NEXTVAL FROM dual
+		</selectKey>
+		INSERT INTO tbl_board(bno, writer, consolename, gamename, gamenameoriginal, gamereleasedate, gamereleasedateymd, gamecondition, gameprice, gamegrade, gamequantity, content)
+		VALUES(#{bno}, #{writer},
+		#{consoleName}, #{gameName}, #{gameNameOriginal}, #{gameReleaseDate}, #{gameReleaseDateYMD}, #{gameCondition}, #{gamePrice}, #{gameGrade}, #{gameQuantity}, #{content})
+	</insert>
+
+	<!-- 게시물 1개 읽기. -->
+	<select id="read" resultType="kr.mintGradeStore.domain.BoardVO">
+		SELECT * FROM tbl_board WHERE bno = #{bno}
+	</select>
+
+	<!-- 게시물 1개 수정. -->
+	<update id="update">
+		UPDATE
+		tbl_board
+		SET
+		writer = #{writer},
+		consolename = #{consoleName},
+		gamename = #{gameName},
+		gamenameoriginal = #{gameNameOriginal},
+		gamereleasedate = #{gameReleaseDate},
+		gamereleasedateymd = #{gameReleaseDateYMD},
+		gamecondition = #{gameCondition},
+		gameprice = #{gamePrice},
+		gamegrade = #{gameGrade},
+		content = #{content},
+		gamequantity = #{gameQuantity},
+		updatedate = sysdate
+		WHERE
+		bno = #{bno}
+	</update>
+
+	<!-- 게시물 1개 삭제. -->
+	<delete id="delete">
+		DELETE tbl_board WHERE bno = #{bno}
+	</delete>
+
+	<!-- 검색 쿼리문 모듈화. -->
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item="type" collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type=='C'.toString()">
+							consoleName like '%' || #{keyword} || '%'
+						</when>
+						<when test="type=='G'.toString()">
+							gameName like '%' || #{keyword} || '%'
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+</mapper>
+<!-- 테스트 클래스에서 메서드 호출. -->
+<!-- >>> 매핑된 XML에서 해당 마이바티스 쿼리 구동. -->
+<!-- >>> 결과를 리턴 받아서 테스트 창에 출력. -->

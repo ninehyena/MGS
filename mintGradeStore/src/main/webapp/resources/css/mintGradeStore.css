@@ -1,0 +1,1344 @@
+@charset "UTF-8";
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Henny+Penny&family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&family=Press+Start+2P&display=swap')
+	;
+
+body {
+	font-family: 'Noto Serif KR';
+}
+
+.welcome {
+	text-align: center;
+	width: 500px;
+	height: 500px;
+	padding: 90px 0px 0px 140px;
+}
+
+/* Header */
+.headerThreeBrothers {
+	width: 1080px;
+	margin: 0px auto -12px auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.headerIntro {
+	width: 1080px;
+	font-size: 12px;
+	text-align: center;
+	margin: 75px auto -10px auto;
+}
+
+.headerMainLogo {
+	width: 1080px;
+	margin: 15px auto -10px auto;
+	text-align: center;
+	font-family: 'Henny Penny';
+	font-size: 40px;
+	font-weight: 700;
+	text-align: center;
+	text-decoration: none !important;
+}
+
+.headerMainLogo a {
+	text-decoration: none !important;
+	color: #444;
+	text-align: center;
+}
+
+.headerMainLogo:hover a {
+	color: #01b4c4;
+}
+
+.headerMainLogo img {
+	width: 50px;
+	height: 50px;
+}
+
+.welcomeUser {
+	width: 1080px;
+	text-align: right;
+	margin: -20px auto -10px auto;
+	font-weight: 700;
+}
+
+.welcomeUser .loginIdText span {
+	color: #01b4c4;
+}
+
+.loginIdTextSp {
+	letter-spacing: 4.2px;
+}
+
+.loginIdTextSp2 {
+	letter-spacing: 2.1px;
+}
+
+.userHide {
+	visibility: hidden;
+}
+
+#searchForm {
+	margin: 0px auto 0px auto;
+	display: inline-block;
+	color: #6e707e;
+	background-color: #fff;
+}
+
+#searchForm select, #searchForm2 select {
+	height: 30px;
+	font-family: 'Noto Serif KR' !important;
+	font-size: 12px !important;
+	border-radius: .35rem;
+}
+
+#searchForm input, #searchForm2 input {
+	height: 24px;
+	font-family: 'Noto Serif KR' !important;
+	border-radius: .35rem;
+	font-size: 13px !important;
+	width: 145px;
+}
+
+.buttonSearch {
+	font-family: 'Noto Serif KR';
+	color: #01b4c4; ! important;
+	border: none;
+	display: inline-block;
+	padding: 5px 10px;
+	background-color: #fff;
+	cursor: pointer;
+	border: solid 1px #ccc;
+	border-radius: .35rem;
+}
+
+.brotherSubtitle {
+	padding: 0px 0px 25px 0px;
+	font-size: 13px;
+}
+
+.header .brotherRightHead span, .header .brotherRightHead span a,
+	.logInOut {
+	color: #000;
+	font-size: 13px;
+	text-decoration: none;
+}
+
+.header .brotherRightHead a:hover, .header .brotherRightHead a:hover span
+	{
+	color: #01b4c4;
+}
+
+/* Necker */
+.necker {
+	width: 1080px;
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+	margin: 10px auto 0px auto;
+	padding: 10px 0px 10px 0px;
+	background-color: #01b4c4 !important;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	background: whitesmoke;
+}
+
+.necker a {
+	color: #eee;
+	font-weight: bolder;
+	text-decoration: none;
+}
+
+.necker a:hover {
+	color: #000;
+}
+
+.necker .preOrderK, .necker .newArrivalK, .necker .journalK, .necker .noticeLinkK
+	{
+	color: #ccc;
+	font-size: 12px;
+}
+
+.necker img {
+	width: 18px;
+	height: 18px;
+	visibility: hidden;
+}
+
+.necker a:hover img {
+	visibility: visible;
+}
+
+/* Mainer */
+.mainer {
+	width: 1080px;
+	margin: 0px auto 0px auto;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.sideCategoryBar {
+	width: 225px;
+	font-size: 15px;
+}
+
+.allProducts {
+	color: #eee;
+	background-color: #333;
+	padding: 40px 0px 18px 18px;
+	font-size: 17px;
+}
+
+.allProducts a {
+	color: #eee;
+	text-decoration: none;
+}
+
+.allProducts a span {
+	color: #aaa;
+	font-size: 12px;
+}
+
+.allProducts a:hover {
+	color: #01b4c4;
+}
+
+.sideCategoryBar .currentGen, .sideCategoryBar .previousGen {
+	color: #eee;
+	background-color: #333;
+}
+
+.sideCategoryBar .currentGen a, .sideCategoryBar .previousGen a {
+	color: #eee;
+	text-decoration: none;
+}
+
+.sideCategoryBar .currentGenK, .sideCategoryBar .previousGenK {
+	color: #aaa;
+	font-size: 12px;
+}
+
+.sideCategoryBar ul {
+	padding-left: 0px;
+	list-style: none;
+}
+
+.sideCategoryBar li {
+	line-height: 2em;
+}
+
+.sideCategoryBar li .consoleK {
+	color: #01b4c4;
+	font-size: 12px;
+}
+
+.sideCategoryBar li a:hover {
+	color: #01b4c4 !important;
+}
+
+.sideCategoryBar img {
+	width: 15px;
+	height: 15px;
+	display: none;
+}
+
+.sideCategoryBar li a:hover img {
+	display: inline-block;
+}
+
+/* Thumbnail Item List */
+.wrap {
+	display: block;
+	width: 820px;
+	margin: 0 0 0 auto;
+	height: 100%
+}
+
+.wrap h1 {
+	padding: 50px 10px 4px;
+}
+
+.thumbItemList {
+	display: block;
+	margin: 0 0 0px -40px;
+	height: 90%;
+}
+
+.thumbItemList ul {
+	list-style: none;
+}
+
+.thumbItemList li {
+	width: 180px;
+	height: 310px;
+	padding: 20px 12px;
+	float: left;
+}
+
+.thumbItemList li a {
+	display: block;
+	text-decoration: none;
+	line-height: 24px;
+}
+
+.thumbItemList li a .thumbItem {
+	position: relative;
+	display: block;
+	height: 180px;
+	color: #aaa;
+	background-color: #eee;
+	text-align: center;
+}
+
+.thumbItem img {
+	width: 180px;
+	height: 180px;
+}
+
+.move:hover .thumbItem img {
+	opacity: 0.7;
+}
+
+.thumbItemList .consoleNameL {
+	color: #01b4c4 !important;
+	font-size: 13px;
+}
+
+.thumbItemList li a strong {
+	font-size: 16px;
+	display: block;
+	color: #333;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	letter-spacing: -0.8px
+}
+
+.thumbItemList .gameReleaseDate {
+	font-size: 12px;
+	color: #767676;
+}
+
+.thumbItemList ul hr {
+	color: #767676;
+}
+
+.thumbItemList .gameCondition {
+	color: #111;
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.thumbItemList .gamePrice {
+	float: right;
+	color: #333;
+	font-size: 13px;
+}
+
+.thumbItemList .gameGrade {
+	float: right;
+	color: #01b4c4 !important;
+}
+
+strong img {
+	width: 15px;
+	height: 15px;
+	visibility: hidden;
+}
+
+.gameGrade img {
+	height: 15px;
+}
+
+.move:hover strong img {
+	visibility: visible;
+}
+
+.move:hover .gameNameK {
+	color: #01b4c4;
+}
+
+/* Write Page */
+.writePage, .getPage, .logInOutPage, .startPage, .signupPage {
+	width: 820px;
+	margin: 0 0 0 auto;
+}
+
+.writePage h1, .getPage h1 {
+	padding: 50px 10px 4px;
+}
+
+.logInOutPage h1, .signupPage h1 {
+	padding: 50px 10px 4px;
+	text-align: center;
+}
+
+.logInMessage h3, .signupMessage h3 {
+	padding: 0px 10px 0px;
+	text-align: center;
+	color: #01b4c4;
+	margin: 15px auto 30px auto;
+}
+
+.logInOutBox h3 {
+	padding: 0px 10px 0px;
+	text-align: center;
+	margin: 15px auto 30px auto;
+}
+
+label {
+	line-height: 2em;
+}
+
+.form-control {
+	margin: 10px 0px 0px 0px;
+	display: block;
+	width: 760px;
+	height: calc(1.5em + .75rem + 2px);
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #6e707e;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #01b4c4;
+	border-radius: .35rem;
+	display: block;
+}
+
+.form-control-reply {
+	margin: 10px 0px 0px 0px;
+	display: block;
+	width: 300px;
+	padding: 0.5em 0.5em 0.5em 1.0em;
+	font-size: 1rem;
+	font-weight: 400;
+	color: #6e707e;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1.5px solid #01b4c4;
+	border-radius: .35rem;
+	display: block;
+}
+
+textarea {
+	width: 100%;
+	height: 15em !important;
+	border: none;
+	resize: none;
+}
+
+input, textarea {
+	font-family: 'Noto Serif KR';
+	font-size: 1rem;
+	color: #000 !important;
+}
+
+input::placeholder, textarea::placeholder {
+	font-family: 'Noto Serif KR';
+	color: #aaa !important;
+	font-size: 14px;
+}
+
+input:read-only, textarea:read-only {
+	font-family: 'Noto Serif KR';
+	color: #000;
+	background-color: #eee;
+}
+
+/* Get Page */
+.getPageTitle {
+	border: 2px solid #01b4c4;
+	border-radius: .35rem;
+	padding: 25px 25px 25px 25px;
+}
+
+.getPageGameName, .getPageTitleNotice {
+	font-size: 35px;
+	font-weight: 700;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	letter-spacing: -0.8px;
+}
+
+.getPageConsoleName, getPageCategoryNotice {
+	font-size: 16px;
+}
+
+.getPageGameReleaseDate {
+	color: #767676;
+}
+
+.getPageConsoleName, .getPageGameGrade, .getPageCategoryNotice {
+	color: #01b4c4 !important;
+}
+
+.getPageGameGrade {
+	font-weight: 700;
+}
+
+#getPageGameGradeImg {
+	height: 25px;
+}
+
+.getPageGamePrice {
+	font-size: 19px;
+	font-weight: 700;
+}
+
+.getPageWriterSp {
+	color: #01b4c4 !important;
+}
+
+.getPageInfoFirst {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.gameImage img {
+	width: 420px;
+}
+
+.gamePageInfoTable {
+	padding: 0px 0px 0px 60px;
+	vertical-align: middle;
+	width: 100%;
+}
+
+.gamePageInfoTable td {
+	font-size: 15px;
+}
+
+.tableConsoleName {
+	color: #01b4c4;
+}
+
+.tableGameName {
+	font-size: 25px;
+	font-weight: 700;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	letter-spacing: -0.8px;
+}
+
+.tableGamePrice {
+	color: #01b4c4;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+/* Attach */
+input.uploadFile::file-selector-button {
+	font-family: 'Noto Serif KR' !important;
+	font-size: 0.8em !important;
+	color: #fff !important;
+	background: whitesmoke;
+	border: none;
+	display: inline-block;
+	padding: 8px 27px;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	background-color: #01b4c4;
+	cursor: pointer;
+	border-radius: .35rem;
+}
+
+input.uploadFile::file-selector-button:hover {
+	color: #111 !important;
+}
+
+input.uploadFile {
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	padding: 5px 10px;
+	width: 460px;
+	margin-top: 13px;
+}
+
+input.uploadFile:read-only {
+	background-color: #fff !important;
+}
+
+/* Paging */
+.pagingNumber {
+	width: 100%;
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	margin: 0px 0px 70px 0px;
+	padding: 65px 0px 0px 0px;
+}
+
+.pagingNumberReply {
+	width: 100%;
+	list-style: none;
+	width: 350px;
+	justify-content: center;
+	display: flex;
+	margin: 0px 0px 70px 0px;
+	padding: 30px 0px 0px 0px;
+}
+
+.pageLink {
+	text-decoration: none;
+	padding: 8px 10px 8px 10px;
+	color: #01b4c4;
+	background-color: #fff;
+	margin: 0px 5px 0px 0px;
+}
+
+.pageLinkReply {
+	text-decoration: none;
+	padding: 8px 10px 8px 10px;
+	color: #01b4c4;
+	background-color: #fff;
+	margin: 0px 5px 0px 0px;
+}
+
+.pageLink:hover {
+	color: #fff;
+	background-color: #01b4c4;
+	border-radius: .5rem;
+}
+
+.pageLinkReply:hover {
+	color: #fff;
+	background-color: #01b4c4;
+	border-radius: .5rem;
+}
+
+.pageItem.active .pageLink {
+	text-decoration: underline;
+	color: #fff;
+	background-color: #01b4c4;
+	border-radius: .5rem;
+}
+
+.pageItemReply.active .pageLinkReply {
+	text-decoration: underline;
+	color: #fff;
+	background-color: #01b4c4;
+	border-radius: .5rem;
+}
+
+/* Footer */
+.footer {
+	display: block;
+	margin: 50px auto 100px auto;
+	color: #777;
+	text-align: center;
+	font-size: 13px;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.footer hr {
+	width: 1080px;
+}
+
+.footer a {
+	color: #000;
+	text-decoration: none;
+}
+
+.footer a:hover {
+	color: #777;
+}
+
+/* Button */
+#regBtn {
+	border: 1px solid #01b4c4;
+	background: whitesmoke;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	background-color: transparent;
+	color: #333 !important;
+	cursor: pointer;
+	display: inline-block;
+	font-family: 'Noto Serif KR';
+	font-size: 13.3333px;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 10px 0px;
+	position: relative;
+	transition: all 0.4s;
+	overflow: hidden;
+}
+
+#regBtn2 {
+	border: 1px solid #01b4c4;
+	background-color: transparent;
+	color: #333 !important;
+	cursor: pointer;
+	display: inline-block;
+	font-family: 'Noto Serif KR';
+	font-size: 13.3333px;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 10px 0px;
+	position: relative;
+	transition: all 0.4s;
+	overflow: hidden;
+}
+
+#regBtn:focus, #regBtn2:focus {
+	outline: none;
+}
+
+#regBtn::before, #regBtn2::before {
+	content: "";
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-color: #01b4c4;
+	top: 100%;
+	left: 0;
+	transition: all 0.4s;
+	z-index: -1;
+}
+
+#regBtn:hover::before, #regBtn2:hover::before {
+	transform: translateY(-100%);
+}
+
+#regBtn:hover, #regBtn2:hover {
+	color: #eee !important;
+}
+
+#regBtn img, #regBtn2 img {
+	width: 40px;
+	height: 40px;
+	display: inline-block !important;
+}
+
+.registerBtnTwins {
+	text-align: right;
+	margin: 0px 23px 0px 0px
+}
+
+#submitBtn, #resetBtn {
+	font-family: 'Noto Serif KR';
+	color: #fff !important;
+	background: whitesmoke;
+	border: none;
+	display: inline-block;
+	padding: 10px 30px;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	background-color: #01b4c4;
+	cursor: pointer;
+	border-radius: .35rem;
+}
+
+#submitBtn:hover, #resetBtn:hover {
+	color: #111 !important;
+	box-shadow: 0 0 0 1px #fff inset;
+}
+
+.getBtnTwins {
+	text-align: right;
+}
+
+#modBtn, #listBtn, #replyAddBtn, #loginBtn, #logoutBtn, #logoutCancelBtn,
+	#signupBtn, .signupResetBtn, .signupBackBtn, #idFindBtn, #pwFindBtn {
+	font-family: 'Noto Serif KR';
+	color: #fff !important;
+	background: whitesmoke;
+	border: none;
+	display: inline-block;
+	padding: 10px 30px;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	background-color: #01b4c4 !important;
+	cursor: pointer;
+	border-radius: .35rem;
+}
+
+#idFindBtn, #pwFindBtn {
+	float: right;
+	font-size: 13.3333px;
+}
+
+.signupThree {
+	text-align: center;
+}
+
+#loginBtn, #logoutBtn, #signupBtn {
+	font-size: 13.3333px;
+}
+
+#loginBtn:hover, #logoutBtn:hover, #signupBtn:hover, .signupResetBtn:hover,
+	.signupBackBtn:hover {
+	color: #111 !important;
+	box-shadow: 0 0 0 1px #fff inset;
+}
+
+#loginBtn {
+	float: right;
+}
+
+#modBtn:hover, #listBtn:hover, #replyAddBtn:hover {
+	color: #111 !important;
+	box-shadow: 0 0 0 1px #fff inset;
+}
+
+#modalModifyBtn, #modalRemoveBtn, #modalRegisterBtn, #modalCloseBtn {
+	font-family: 'Noto Serif KR';
+	color: #fff !important;
+	background: whitesmoke;
+	border: none;
+	display: inline-block;
+	padding: 10px 20px;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	background-color: #01b4c4;
+	cursor: pointer;
+	border-radius: .35rem;
+}
+
+#modalModifyBtn:hover, #modalRemoveBtn:hover, #modalRegisterBtn:hover,
+	#modalCloseBtn:hover {
+	color: #111 !important;
+	box-shadow: 0 0 0 1px #fff inset;
+}
+
+.modifyBtnBrothers {
+	text-align: right;
+	margin: 0px 23px 0px 0px;
+}
+
+.modifyBtnmodify, .modifyBtnRemove {
+	border: none;
+	display: inline-block;
+	padding: 0px 0px 0px 0px;
+}
+
+.modifyBtnList, .modifyBtnModify, .modifyBtnRemove {
+	font-family: 'Noto Serif KR';
+	color: #fff !important;
+	background: whitesmoke;
+	border: none;
+	display: inline-block;
+	padding: 10px 30px;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	background-color: #01b4c4;
+	text-decoration: none;
+	color: #fff !important;
+	border-radius: .35rem;
+}
+
+.modifyBtnList:hover, .modifyBtnModify:hover, .modifyBtnRemove:hover {
+	color: #111 !important;
+	box-shadow: 0 0 0 1px #fff inset;
+	cursor: pointer;
+}
+
+/* Modal */
+.modal {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.8);
+	top: 0;
+	left: 0;
+	display: none;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.modalContent {
+	width: 400px;
+	height: 200px;
+	background: #fff;
+	border-radius: 10px;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	margin-top: -100px;
+	margin-left: -200px;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 18px 0;
+	line-height: 23px;
+	cursor: pointer;
+}
+
+.modalHeader {
+	font-family: 'Press Start 2P';
+	font-size: 14px;
+	border-bottom: 1px solid #01b4c4;
+	padding-bottom: 14px;
+}
+
+.modalFooter {
+	font-size: 13px;
+	botton: 9px;
+}
+
+.replyModal {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.8);
+	top: 0;
+	left: 0;
+	display: none;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.8);
+}
+
+.replyModalContent {
+	width: 400px;
+	background: #fff;
+	border-radius: 10px;
+	position: relative;
+	top: 30%;
+	left: 50%;
+	margin-top: -100px;
+	margin-left: -200px;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 18px 0;
+	line-height: 23px;
+}
+
+.replyModalHeader {
+	font-family: 'Press Start 2P';
+	font-size: *;
+	border-bottom: 1px solid #01b4c4;
+	padding-bottom: 14px;
+}
+
+.replyModalBody {
+	text-align: left;
+	margin: 0px 0px 0px 35px;
+}
+
+.replyModalBody label {
+	line-height: 0.7em;
+}
+
+.replyModalFooter {
+	font-size: 13px;
+	botton: 9px;
+}
+
+.chat img {
+	width: 15px;
+	height: 15px;
+}
+
+/* ETC. */
+.replyContent {
+	margin: 0px 0px 0 12px;
+}
+
+.replyBody .chat {
+	list-style: none;
+	padding: 0px 0px 0px 0px;
+}
+
+.replyBody .chat p {
+	border: solid 1.5px #01b4c4;
+	border-radius: .35rem;
+	padding: 0.5em 0.5em 0.5em 1.0em;
+	margin: 16px auto 25px 0px;
+	width: 350px;
+}
+
+.replyCount {
+	float: right;
+	font-weight: 300 !important;
+	color: #01b4c4 !important;
+	font-size: 11px !important;
+	text-decoration: none;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	letter-spacing: -0.8px;
+}
+
+.uploadResult ul {
+	list-style: none;
+	padding: 0px 0px 0px 15px;
+	border: solid 1.5px #01b4c4;
+	border-radius: .35rem;
+	padding: 0em 0.5em 0.5em 1.0em;
+	width: 455px;
+}
+
+.uploadResult ul li {
+	margin-top: 8px;
+	font-size: 14px;
+}
+
+.uploadResult ul li img {
+	vertical-align: bottom;
+}
+
+.uploadResult ul li span {
+	cursor: pointer;
+}
+
+.logInOutPage .logInOutBox, .signupBox, .findBox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.logInOutPage .form-control, .signupBox .form-control, .findBox .form-control
+	{
+	width: 350px;
+}
+
+.logInOutPage .logInMessage, .logInOutPage .logOutMessage, .signupPage .signupMessage
+	{
+	vertical-align: middle;
+	text-align: center;
+}
+
+.logInOutBox fieldset {
+	text-align: center;
+}
+
+.logInOutBox label span, .signupBox label span, .findBox label span {
+	font-size: 12px;
+}
+
+.unknown {
+	color: #ddd;
+}
+
+#tableGameGradeImg {
+	height: 15px
+}
+
+#question {
+	height: 15px;
+	cursor: pointer;
+}
+
+.joinGoGo a, .findIdPw a, .loginGoGo a {
+	font-size: 13px;
+	text-decoration: none;
+	color: #777;
+}
+
+.joinNoNo, .forgetIdPw, .findYes {
+	color: #444;
+	font-weight: 500;
+	font-size: 14px;
+}
+
+.joinGoGo a:hover, .findIdPw a:hover, .loginGoGo a:hover {
+	color: #01b4c4;
+}
+
+.buyBuyBrothers {
+	padding: 14px 2px 0px 0px;
+}
+
+#cartBtn, #buyBtn {
+	font-family: 'Noto Serif KR';
+	color: #fff !important;
+	background: whitesmoke;
+	border: none;
+	display: inline-block;
+	padding: 10px 54px;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	background-color: #aaa !important;
+	cursor: pointer;
+	float: right;
+}
+
+#cartBtn:hover, #buyBtn:hover {
+	color: #111 !important;
+	box-shadow: 0 0 0 1px #fff inset;
+}
+
+.jeju {
+	font-size: 11px;
+}
+
+.tableGameReleaseDateYMD {
+	font-style: oblique;
+	font-weight: bold;
+}
+
+.press {
+	font-family: 'Press Start 2P';
+	font-size: 40px;
+}
+
+.startPage {
+	display: flex;
+	justify-content: center;
+}
+
+.pressMint {
+	font-size: 44px;
+	font-weight: 700;
+}
+
+.press a {
+	text-decoration: none;
+	color: #aaa;
+	font-weight: 700;
+}
+
+.press a:hover {
+	color: #01b4c4;
+}
+
+.press img {
+	height: 80px;
+}
+
+.pressInner {
+	border: solid 10px #111;
+	padding: 0px 30px 0px 30px;
+	border-radius: .5rem;
+}
+
+.press a img {
+	height: 50px;
+}
+
+.getPageBno {
+	color: #aaa;
+}
+
+.tablePageBno {
+	color: #aaa;
+	font-size: 13px;
+}
+
+.adminGetPage {
+	border: solid 2px #111;
+	padding: 0px 30px 0px 30px;
+	border-radius: .5rem;
+}
+
+.onlyAdminGetPage {
+	font-size: 17px;
+	font-weight: 700;
+}
+
+.adminOnlyRegBtn {
+	font-size: 17px;
+	font-weight: 700;
+}
+
+.onlyAdminGetPageInfo {
+	font-size: 13.3333px;
+}
+
+.checkB {
+	display: none;
+	color: #01b4c4;
+	font-size: 15px;
+	padding-top: 4px;
+	padding-left: 2px;
+	font-weight: bold;
+}
+
+.checkR {
+	display: none;
+	color: red;
+	font-size: 15px;
+	padding-top: 4px;
+	padding-left: 2px;
+	font-weight: bold;
+}
+
+#checkInfo {
+	font-size: 13px;
+	padding-top: 7px;
+	padding-left: 2px;
+}
+
+#userAddr1 {
+	width: 170px;
+}
+
+#addrBtn {
+	font-family: 'Noto Serif KR';
+	color: #fff !important;
+	background: whitesmoke;
+	border: none;
+	display: inline-block;
+	padding: 6px 30px;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+	background-color: #aaa !important;
+	cursor: pointer;
+	border-radius: .35rem;
+	height: 30px;
+}
+
+.signupBox input {
+	height: 25px;
+}
+
+.zipCode {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.star {
+	color: #01b4c4;
+	font-weight: bold;
+	font-size: 14px !important;
+}
+
+.must {
+	color: #01b4c4;
+	font-weight: bold;
+	float: right;
+	font-size: 14px;
+}
+
+.form-group .findIdBox, .form-group .findPwBox {
+	display: none;
+}
+
+#findId, #findPw {
+	cursor: pointer;
+	font-size: 17px;
+}
+
+#findId:hover, #findPw:hover {
+	color: #01b4c4;
+}
+
+.underLine {
+	border: 2px solid rgb(1, 180, 196);
+}
+
+.notice {
+	width: 100%;
+	min-width: 500px;
+	border-collapse: collapse;
+}
+
+.noticeMint {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.noticeETC {
+	color: rgb(1, 180, 196);
+	font-weight: bold;
+}
+
+.notice th:last-child, .notice td:last-child {
+	border-right: 0px;
+}
+
+.notice th:first-child, .notice td:first-child {
+	border-left: 0px;
+}
+
+.notice .th1 {
+	font-weight: normal;
+	border-top: none;
+}
+
+.notice .th1, .notice .td1 {
+	padding: 0px;
+	width: 50px;
+	color: rgb(51, 51, 51);
+	text-align: center !important;
+}
+
+.notice th, .notice td {
+	padding: 10px;
+	border: 1px solid rgb(204, 204, 204);
+}
+
+.notice th {
+	color: rgb(68, 68, 68);
+	text-align: left;
+}
+
+.notice .td1, .notice .td2, .notice .td3 {
+	font-size: 14px;
+}
+
+.td2 a {
+	text-decoration: none;
+	color: rgb(51, 51, 51);
+}
+
+.categoryNoticeInfo {
+	font-weight: bold;
+	color: rgb(1, 180, 196);
+}
+
+.notice .th3, .notice .td3 {
+	padding: 0px;
+	width: 100px;
+	color: rgb(51, 51, 51);
+	text-align: center !important;
+}
+
+.td2 img {
+	vertical-align: text-top;
+	visibility: hidden;
+}
+
+.td2 a:hover img {
+	visibility: visible;
+}
+
+.td2 a:hover {
+	font-weight: bold;
+	color: rgb(1, 180, 196);
+}
+
+form#searchForm2 {
+	float: left;
+}
+
+#regBtn, #regBtn2 {
+	border-top: none;
+}
+
+#regBtn2 {
+	border-right: none;
+}
+
+.wrap .noticeFooter {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline
+}
+
+.noticeUpdateDateInfo {
+	color: #aaa;
+	float: right;
+	padding-top: 8px;
+	font-size: 14px;
+}
+
+.preOrderK, .newArrivalK, .journalK, .order a, .cart a, #cartBtn,
+	#buyBtn, .loginIdTextSp2 {
+	text-decoration: line-through !important;
+}

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.mintGradeStore.mapper.MemberMapper">
+
+	<!-- resultType: 자동으로 설정된 리턴 타입. -->
+	<!-- resultMap: 수동으로 설정된 리턴 타입. -->
+	<resultMap type="kr.mintGradeStore.domain.AuthVO" id="authMap">
+		<result property="userId" column="userId" />
+		<result property="auth" column="auth" />
+	</resultMap>
+
+	<resultMap type="kr.mintGradeStore.domain.MemberVO" id="memberMap">
+		<id property="userId" column="userId" />
+		<result property="userId" column="userid" />
+		<result property="userPw" column="userpw" />
+		<result property="userName" column="username" />
+		<result property="regDate" column="regdate" />
+		<result property="updateDate" column="updatedate" />
+		<collection property="authList" resultMap="authMap" />
+	</resultMap>
+
+	<!-- 회원 가입. -->
+	<insert id="signup">
+		INSERT INTO tbl_member(userid, userpw, username, usermail, useraddr1, useraddr2, useraddr3)
+		VALUES(#{userId}, #{userPw}, #{userName}, #{userMail}, #{userAddr1}, #{userAddr2},
+		#{userAddr3})
+	</insert>
+
+	<select id="userIdCheck" resultType="int">
+		SELECT COUNT(*) FROM tbl_member WHERE userid = #{userId}
+	</select>
+
+	<select id="userMailCheck" resultType="int">
+		SELECT COUNT(*) FROM tbl_member WHERE usermail = #{userMail}
+	</select>
+
+	<insert id="userAuth">
+		INSERT INTO tbl_member_auth(userid) VALUES(#{userId})
+	</insert>
+
+	<!-- 회원 정보 테이블과 회원 권한 테이블을 조인하여 1개의 타입으로 회원 관련 정보를 리턴. -->
+	<select id="login" resultMap="memberMap">
+		SELECT
+		mem.userid, userpw, username, usermail, useraddr1, useraddr2, useraddr3, enabled, regdate, updatedate, auth
+		FROM
+		tbl_member mem
+		LEFT OUTER JOIN tbl_member_auth auth ON mem.userid = auth.userid
+		WHERE
+		mem.userid = #{userId}
+		<!-- LEFT OUTER JOIN: 좌 테이블, 우 테이블이 있을 때 좌 테이블을 기준으로 레코드 추출. 좌 테이블은 모두 추출, 우 테이블은 일치하는 값들 추출. -->
+		<!-- 로그인 창에서 입력한 사용자 계정을 넘겨 받아서 일치하는 데이터 검색. -->
+		<!-- 회원 테이블과 회원 권한 테이블을 좌측 아우터 조인하여 회원 정보는 모두 가져오고 권한 정보는 있다면 가져온다. -->
+		<!-- 표준 쿼리. -->
+	</select>
+
+	<select id="findId" resultType="string">
+		SELECT userid FROM tbl_member WHERE usermail = #{userMail}
+	</select>
+
+	<select id="findPw" parameterType="map" resultType="int">
+		SELECT COUNT(userpw) FROM tbl_member WHERE userid = #{userId} AND usermail = #{userMail}
+	</select>
+
+	<update id="sendPwMail">
+		UPDATE tbl_member SET userpw = #{userPw} WHERE userid = #{userId} AND usermail = #{userMail}
+	</update>
+
+</mapper>

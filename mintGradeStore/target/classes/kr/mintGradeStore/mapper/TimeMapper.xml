@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTDMapper3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- MyBatis 설정 추가. -->
+
+<!-- 매칭: 약도와 현실의 길을 일치시키는 과정. -->
+<mapper namespace="kr.mintGradeStore.mapper.TimeMapper">
+	<select id="getTimeMintGradeStore" resultType="string">
+		SELECT sysdate sd FROM dual
+	</select>
+</mapper>
+<!-- 쿼리문 끝에 세미콜론(;)은 쓰지 않아야 한다. -->
+<!-- resultType 뒤의 string은 대문자 S로 시작하지 않는다. -->
